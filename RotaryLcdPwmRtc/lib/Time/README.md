@@ -1,3 +1,5 @@
+GitHub:
+https://github.com/PaulStoffregen/Time
 # Arduino Time Library
 
 Time is a library that provides timekeeping functionality for Arduino.

@@ -1,4 +1,3 @@
-
 //Definitions
 #define WITH_LCD 1
 
@@ -22,8 +21,7 @@ ClickEncoder *encoder;
 
 String ver = "AquaCtrl v0.7.3";
 
-
-// mENU RELEATED
+// MENU RELEATED
 long last, value, lastPosition, tempValue;
 boolean isRunning, inMenu = false;
 boolean set, pwmSet, firstRun, nowRunning = true;
@@ -31,7 +29,6 @@ const char* menu[] =
 {"> Data/Godzina", "> Max. os. noc", "> Max. os. dzien", "> Poczatek dnia", "> Koniec dnia", "> Tryb reczny", "> Ust. tr. recz.", "> Wersja FW"};
 const char* menuManual[] =
 {"> Wl/Wy os.dzien", "> Moc os. dzien", "> Wl/Wy os. noc", "> Moc os. noc", "> Wyjscie"};
-
 
 
 // Date Releated
@@ -47,7 +44,7 @@ int poczatekDnia[2] = {14, 00};
 int koniecDnia[2] = {22, 00};
 
 
-// TODO: This is usefoul to check length of the array (depends on variable)
+// TODO: This is useful to check length of the array (depends on variable)
 //int mysize = sizeof(months) / sizeof(char);
 //Serial.print(String(mysize));
 
@@ -82,8 +79,7 @@ boolean isDecreasingRunning = false;
 
 //---------------------------------------------------------------Methods
 
-uint32_t syncProvider()
-{
+uint32_t syncProvider(){
   return RTC.now().unixtime();
 }
 
@@ -186,13 +182,7 @@ void setup() {
   lcd.clear();
 
 }
-
 //------------------ END OF MAIN SETUP
-
-
-
-
-
 
 
 // ******************* METHODS  STARTING HERE
@@ -248,7 +238,6 @@ void recalculateEverything() {
 //  Serial.println("*/*/**/*/* RECALCULATION END/*/*/*/*/*/*");
 
 }
-
 
 void printLcd(boolean reedraw, int row, int line, String message) { // will print on LCD
   // Function will print message on LCD. It can redraw, print on specific line/row.
@@ -552,8 +541,6 @@ int onOffLed(String message, int pin, int pwm) {
   return pwm;
 }
 
-
-
 int manualSettingsMenu() {
   int temManualValue = 0;
 
@@ -635,7 +622,6 @@ int manualSettingsMenu() {
   }
 }
 
-
 void endHour() {
 
   // This Method is responsible for changing END Time
@@ -701,8 +687,6 @@ void startHour() {
   //  Serial.println(calculatedTimeOn);
   lcd.noBlink();
 }
-
-
 
 long calculateTime(long hours, long minutes, long seconds) {
   return ((hours * 3600) + (minutes * 60) + seconds);
